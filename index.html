@@ -1,215 +1,57 @@
 <!DOCTYPE html>
 <html lang="nl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/apple-touch-icon.png?"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/favicon-32x32.png?"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="194x194"
-      href="/favicon-194x194.png?"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="/android-chrome-192x192.png?"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/favicon-16x16.png?"
-    />
-    <link rel="manifest" href="/site.webmanifest?" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg?" color="#5bbad5" />
-    <meta name="apple-mobile-web-app-title" content="Beter dan de MIDI" />
-    <meta name="application-name" content="Beter dan de MIDI" />
-    <meta name="msapplication-TileColor" content="#00a300" />
-    <meta name="msapplication-TileImage" content="/mstile-144x144.png?" />
-    <meta name="theme-color" content="#fffeee" />
-    <title>Beter dan de MIDI!</title>
-    <script src="index.min.js"></script>
-    <script src="anime.min.js"></script>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #fffeee;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        overflow: hidden;
+
+<head>
+  <meta charset="utf-8" />
+  <title>Beter dan de MIDI</title>
+
+  <base href="/" />
+
+  <!-- This meta viewport ensures the webpage's dimensions change according to the device it's on. This is called Responsive Web Design.-->
+  <meta name="viewport"
+    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <meta name="description" content="Een app speciaal voor Carlijn en Sander met muziek die gespeeld is op de bruiloft. 25 mei 2024" />
+
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181818" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f3f3f3" />
+
+  <!-- These meta tags are Apple-specific, and set the web application to run in full-screen mode with a black status bar. Learn more at https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Beter dan de MIDI" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+  <!-- This tag is used by the PWA Starter CLI to identify template projects. Don't remove if you are using the CLI. -->
+  <meta name="pwa-starter-template-identity" content="pwa-starter"/>
+
+  <!-- Imports an icon to represent the document. -->
+  <link rel="icon" href="/assets/icons/icon_24.png" type="image/png" />
+
+  <!-- Imports the manifest to represent the web application. A web app must have a manifest to be a PWA. -->
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- light mode and dark mode CSS -->
+  <link rel="stylesheet" media="(prefers-color-scheme:light)"
+    href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.73/dist/themes/light.css">
+  <link rel="stylesheet" media="(prefers-color-scheme:dark)"
+    href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.73/dist/themes/dark.css"
+    onload="document.documentElement.classList.add('sl-theme-dark');">
+
+  <script type="module" src="/src/app-index.ts"></script>
+</head>
+
+<body>
+  <!-- Our app-index web component. This component is defined in src/pages/app-index.ts-->
+  <app-index></app-index>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.onload = () => {
+        navigator.serviceWorker.register(
+          '/sw.js'
+        );
       }
+    }
+  </script>
+</body>
 
-      #main-image {
-        border-radius: 10px;
-        max-width: 70%;
-        width: auto;
-        aspect-ratio: 1/1;
-      }
-
-      @media screen and (min-width: 768px) {
-        #main-image {
-          max-width: 60%;
-        }
-      }
-
-      @media screen and (min-width: 992px) {
-        #main-image {
-          max-width: 60%;
-        }
-      }
-
-      @media screen and (min-width: 1024px) {
-        #main-image {
-          max-width: 40%;
-        }
-      }
-
-      #content {
-        z-index: 1;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      button {
-        padding: 15px 30px;
-        background-color: #f08080;
-        border: none;
-        border-radius: 5px;
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.2s ease;
-        max-width: 80%;
-      }
-
-      button:hover {
-        background-color: #e36969;
-      }
-
-      .turnover-button {
-        padding: 0.5rem;
-      }
-
-      #my-canvas {
-        position: absolute;
-        z-index: 0;
-        width: 100%;
-        height: 100%;
-      }
-
-      .audios {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        gap: 20px;
-      }
-
-      .audio-player {
-        display: flex;
-        align-items: center;
-        width: 300px;
-        flex-grow: 2;
-      }
-
-      .song-title {
-        font-size: 0.8rem;
-      }
-    </style>
-  </head>
-  <body>
-    <canvas id="my-canvas"></canvas>
-    <div id="content">
-      <img src="front.jpg" width="900" alt="Happy Image" id="main-image" />
-      <div class="audios">
-        <div class="audio-player-container">
-          <span class="song-title">Bloom - The Paper Kites</span>
-          <div class="audio-player">
-            <audio
-              controls
-              src="https://diviextended.com/wp-content/uploads/2021/10/sound-of-waves-marine-drive-mumbai.mp3"
-              preload="metadata"
-            ></audio>
-          </div>
-        </div>
-        <div class="audio-player-container">
-          <span class="song-title">One Of These Nights - Eagles</span>
-          <div class="audio-player">
-            <audio
-              controls
-              src="https://diviextended.com/wp-content/uploads/2021/10/sound-of-waves-marine-drive-mumbai.mp3"
-              preload="metadata"
-            ></audio>
-          </div>
-        </div>
-        <div class="audio-player-container">
-          <span class="song-title">Vivo Per Lei - Andrea Bocelli</span>
-          <div class="audio-player">
-            <audio
-              controls
-              src="https://diviextended.com/wp-content/uploads/2021/10/sound-of-waves-marine-drive-mumbai.mp3"
-              preload="metadata"
-            ></audio>
-          </div>
-        </div>
-        <div class="audio-player-container">
-          <span class="song-title">Umbrella - The Baseballs</span>
-          <div class="audio-player">
-            <audio
-              controls
-              src="https://diviextended.com/wp-content/uploads/2021/10/sound-of-waves-marine-drive-mumbai.mp3"
-              preload="metadata"
-            ></audio>
-          </div>
-        </div>
-        <div class="audio-player-container">
-          <span class="song-title">Walking On Sunshine - Katrina And The Waves</span>
-          <div class="audio-player">
-            <audio
-              controls
-              src="https://diviextended.com/wp-content/uploads/2021/10/sound-of-waves-marine-drive-mumbai.mp3"
-              preload="metadata"
-            ></audio>
-          </div>
-        </div>
-      </div>
-      <button class="download-button">Download de muziek!</button>
-    </div>
-    <script>
-      const downloadButton = document.querySelector(".download-button");
-      downloadButton.addEventListener("click", () => {
-        alert("Downloading happiness...");
-      });
-
-      var confettiSettings = { target: "my-canvas" };
-      var confetti = new ConfettiGenerator(confettiSettings);
-      confetti.render();
-
-      const happyImage = document.querySelector(".flip-container");
-      happyImage.addEventListener("click", () => {
-        happyImage.classList.toggle("flipped");
-      });
-    </script>
-  </body>
 </html>
