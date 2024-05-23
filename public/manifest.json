@@ -22,6 +22,14 @@
       "url": "/"
     }
   ],
+  "screenshots": [
+    {
+      "src": "https://imreboersma.github.io/Beter-dan-de-MIDI/assets/screenshots/screenshot.png",
+      "sizes": "1036x1956",
+      "type": "image/png",
+      "platform": "long"
+    }
+  ],
   "launch_handler": {
     "client_mode": "focus-existing"
   },
