@@ -2,7 +2,7 @@ import { LitElement, css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { TemplateResult } from 'lit-html';
 
-import '../../public/assets/index.min.js';
+import 'https://imreboersma.github.io/Beter-dan-de-MIDI/assets/index.min.js';
 import '../components/custom-audio-player';
 
 @customElement('app-home')
