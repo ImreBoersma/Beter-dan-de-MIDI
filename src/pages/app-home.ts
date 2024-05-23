@@ -14,6 +14,7 @@ export class AppHome extends LitElement {
   // After this component is added to the DOM
   firstUpdated() {
     const canvas = this.shadowRoot?.getElementById('my-canvas') as HTMLCanvasElement;
+    // @ts-ignore
     new ConfettiGenerator({ target: canvas, max: 100 }).render();
   }
 
