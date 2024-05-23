@@ -11,7 +11,6 @@ export class AppHome extends LitElement {
     alert("Downloading happiness...");
   }
 
-  // After this component is added to the DOM
   firstUpdated() {
     const canvas = this.shadowRoot?.getElementById('my-canvas') as HTMLCanvasElement;
     // @ts-ignore
