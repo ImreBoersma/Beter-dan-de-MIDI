@@ -63,7 +63,7 @@ export class AppHome extends LitElement {
 
   button {
     z-index: 2;
-    padding: 15px 30px;
+    padding: 15px;
     background-color: #f08080;
     border: none;
     border-radius: 5px;
@@ -117,9 +117,7 @@ export class AppHome extends LitElement {
     });
     return html`
     <canvas id="my-canvas"></canvas>
-    <lit-confetti style="z-index:0;" gravity=.4 gradient
-    count=20></lit-confetti>
-       <div id="content">
+      <div id="content">
       <img src="https://imreboersma.github.io/Beter-dan-de-MIDI/assets/front.jpg" width="900" alt="Happy Image" id="main-image" />
       <div class="audio-player-container">
           ${renderAudios}
