@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: '14'
 
@@ -27,15 +27,16 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Rewrite Paths in Index and Manifest
-        run: |
-          sed -i 's@/manifest.json@${{ github.event.repository.name }}/manifest.json@g' ./index.html
-          sed -i 's@/sw.js@${{ github.event.repository.name }}/sw.js@g' ./index.html
-          sed -i 's@"/"@"/${{ github.event.repository.name }}/"@g' ./public/manifest.json
-          cat index.html
-          cat ./public/manifest.json
+      - name: Rewrite Manifest Path in Index
+        run: sed -i 's@/manifest.json@${{ github.event.repository.name }}/manifest.json@g' ./index.html && cat index.html
+
+      - name: Rewrite Service Worker Path in Index
+        run: sed -i 's@/sw.js@${{ github.event.repository.name }}/sw.js@g' ./index.html && cat ./index.html
+
+      - name: Replace Paths in Manifest
+        run: sed -i 's@"/"@"/${{ github.event.repository.name }}/"@g' ./public/manifest.json && cat ./public/manifest.json
 
       - name: Vite Build
         run: npm run build -- --base=/${{ github.event.repository.name }}/
@@ -44,9 +45,8 @@ jobs:
         run: cp dist/index.html dist/404.html
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: dist
           path: dist/
 
   deploy:
@@ -61,3 +61,4 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
