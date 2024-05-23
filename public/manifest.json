@@ -5,6 +5,7 @@
   "display": "standalone",
   "start_url": "/",
   "lang": "nl",
+  "dir": "ltr",
   "short_name": "Beter dan de MIDI",
   "theme_color": "#fffeee",
   "description": "Een app speciaal voor Carlijn en Sander met muziek die gespeeld is op de bruiloft. 25 mei 2024",

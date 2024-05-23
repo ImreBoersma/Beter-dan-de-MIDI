@@ -2,6 +2,7 @@ import { LitElement, css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { TemplateResult } from 'lit-html';
 
+import '../../public/assets/index.min.js';
 import '../components/custom-audio-player';
 
 @customElement('app-home')
@@ -10,12 +11,26 @@ export class AppHome extends LitElement {
     alert("Downloading happiness...");
   }
 
+  // After this component is added to the DOM
+  firstUpdated() {
+    const canvas = this.shadowRoot?.getElementById('my-canvas') as HTMLCanvasElement;
+    new ConfettiGenerator({ target: canvas, max: 100 }).render();
+  }
+
   static styles = css`
+  #my-canvas {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
   #main-image {
+    z-index:2;
     border-radius: 10px;
     max-width: 70%;
     width: auto;
-    cursor: pointer;
     aspect-ratio: 1/1;
   }
 
@@ -47,6 +62,7 @@ export class AppHome extends LitElement {
   }
 
   button {
+    z-index: 2;
     padding: 15px 30px;
     margin: 20px;
     background-color: #f08080;
@@ -62,10 +78,17 @@ export class AppHome extends LitElement {
   button:hover {
     background-color: #e36969;
   }
+  .audio-player-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+  }
     `;
 
   render() {
-
     const renderAudios: TemplateResult[] = [];
     const originalAudios = [
       {
@@ -94,10 +117,12 @@ export class AppHome extends LitElement {
       renderAudios.push(html`<custom-audio-player title="${audio.title}" src="${audio.src}"></custom-audio-player>`);
     });
     return html`
+    <canvas id="my-canvas"></canvas>
+    <lit-confetti style="z-index:0;" gravity=.4 gradient
+    count=20></lit-confetti>
        <div id="content">
       <img src="https://imreboersma.github.io/Beter-dan-de-MIDI/assets/front.jpg" width="900" alt="Happy Image" id="main-image" />
-      <div class="audios">
-        <div class="audio-player-container">
+      <div class="audio-player-container">
           ${renderAudios}
       </div>
       <button @click="${this._download}" >Download de muziek!</button>
