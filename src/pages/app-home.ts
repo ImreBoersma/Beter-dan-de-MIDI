@@ -64,7 +64,6 @@ export class AppHome extends LitElement {
   button {
     z-index: 2;
     padding: 15px 30px;
-    margin: 20px;
     background-color: #f08080;
     border: none;
     border-radius: 5px;
