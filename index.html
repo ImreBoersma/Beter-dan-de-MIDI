@@ -36,10 +36,10 @@
     <meta name="pwa-starter-template-identity" content="pwa-starter" />
 
     <!-- Imports an icon to represent the document. -->
-    <link rel="icon" href="/public/assets/favicon.ico" type="image/png" />
+    <link rel="icon" href="/assets/favicon.ico" type="image/png" />
 
     <!-- Imports the manifest to represent the web application. A web app must have a manifest to be a PWA. -->
-    <link rel="manifest" href="/public/manifest.json" />
+    <link rel="manifest" href="/manifest.json" />
 
     <!-- light mode and dark mode CSS -->
     <link
@@ -64,7 +64,7 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.onload = () => {
-          navigator.serviceWorker.register('/public/sw.js');
+          navigator.serviceWorker.register('/sw.js');
         };
       }
     </script>

@@ -95,7 +95,7 @@ export class AppHome extends LitElement {
     });
     return html`
        <div id="content">
-      <img src="assets/front.jpg" width="900" alt="Happy Image" id="main-image" />
+      <img src="./assets/front.jpg" width="900" alt="Happy Image" id="main-image" />
       <div class="audios">
         <div class="audio-player-container">
           ${renderAudios}
