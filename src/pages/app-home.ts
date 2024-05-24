@@ -2,7 +2,7 @@ import { LitElement, css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { TemplateResult } from 'lit-html';
 
-import 'https://imreboersma.github.io/Beter-dan-de-MIDI/assets/index.min.js';
+import '../../public/assets/index.min.js';
 import '../components/custom-audio-player';
 
 @customElement('app-home')
@@ -120,7 +120,7 @@ export class AppHome extends LitElement {
     return html`
     <canvas id="my-canvas"></canvas>
       <div id="content">
-      <img src="https://imreboersma.github.io/Beter-dan-de-MIDI/assets/front.webp" width="900" alt="Happy Image" id="main-image" />
+      <img src="../../public/assets/front.webp" width="900" alt="Happy Image" id="main-image" />
       <div class="audio-player-container">
           ${renderAudios}
       </div>
