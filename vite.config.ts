@@ -8,6 +8,7 @@ export default defineConfig({
     sourcemap: true,
     assetsDir: "code",
     target: ["esnext"],
+    minify: "terser",
     cssMinify: true,
     lib: false
   },
