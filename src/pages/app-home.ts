@@ -65,10 +65,10 @@ export class AppHome extends LitElement {
   button {
     z-index: 2;
     padding: 15px;
-    background-color: #f08080;
+    background-color: #F08080;
     border: none;
     border-radius: 5px;
-    color: white;
+    color: #141414;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s ease;
@@ -76,7 +76,8 @@ export class AppHome extends LitElement {
   }
 
   button:hover {
-    background-color: #e36969;
+    background-color: #E67575;
+    color: #
   }
   .audio-player-container {
     display: flex;
