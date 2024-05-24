@@ -94,23 +94,23 @@ export class AppHome extends LitElement {
     const originalAudios = [
       {
         title: "Bloom - The Paper Kites",
-        src: "assets/audio/Bloom - The Paper Kites.mp3",
+        src: "https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/Bloom%20-%20The%20Paper%20Kites.mp3",
       },
       {
         title: "One Of These Nights - Eagles",
-        src: "assets/audio/One Of These Nights - Eagles.mp3",
+        src: "https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/One%20Of%20These%20Nights%20-%20Eagles.mp3",
       },
       {
         title: "Vivo Per Lei - Andrea Bocelli",
-        src: "assets/audio/Vivo Per Lei - Andrea Bocelli.mp3",
+        src: "https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/Vivo%20Per%20Lei%20-%20Andrea%20Bocelli.mp3",
       },
       {
         title: "Umbrella - The Baseballs",
-        src: "assets/audio/Umbrella - The Baseballs.mp3",
+        src: "https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/Umbrella%20-%20The%20Baseballs.mp3",
       },
       {
         title: "Walking On Sunshine - Katrina And The Waves",
-        src: "assets/audio/Walking On Sunshine - Katrina And The Waves.mp3",
+        src: "https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/Walking%20On%20Sunshine%20-%20Katrina%20And%20The%20Waves.mp3",
       },
     ];
 
@@ -121,7 +121,7 @@ export class AppHome extends LitElement {
     return html`
     <canvas id="my-canvas"></canvas>
       <div id="content">
-      <img src="assets/front.webp" width="900" alt="Happy Image" id="main-image" />
+      <img src="https://imreboersma.github.io/Beter-dan-de-MIDI/assets/front.webp" width="900" alt="Happy Image" id="main-image" />
       <div class="audio-player-container">
           ${renderAudios}
       </div>
