@@ -64,7 +64,6 @@ export class AppHome extends LitElement {
     max-width: 70%;
     width: auto;
     aspect-ratio: 1/1;
-    padding-top: 20px;
   }
 
   @media screen and (min-width: 768px) {
