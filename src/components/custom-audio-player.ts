@@ -13,8 +13,8 @@ class CustomAudioPlayer extends LitElement {
     .audio-player {
         display: flex;
         align-items: center;
-        width: 300px;
         flex-grow: 2;
+
       }
 
       .song-title {
@@ -26,7 +26,7 @@ class CustomAudioPlayer extends LitElement {
         return html`
             <div>
                 <span class="song-title">${this.title}</span>
-                    <audio class="audio-player" src="${this.src}" controls id="${this.title}"></audio>
+                    <audio class="audio-player" src="${this.src}" controls />
             </div>
         `;
     }

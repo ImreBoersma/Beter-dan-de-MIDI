@@ -60,7 +60,7 @@ export class AppHome extends LitElement {
 
   #main-image {
     z-index:2;
-    border-radius: 10px;
+    border-radius: 1rem;
     max-width: 70%;
     width: auto;
     aspect-ratio: 1/1;
@@ -90,16 +90,16 @@ export class AppHome extends LitElement {
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 20px;
-    padding-botton: 20px;
+    gap: 2rem;
+    padding-top: 2rem;
   }
 
   #download-button {
     z-index: 2;
-    padding: 15px;
+    padding: 1rem;
     background-color: #F08080;
     border: none;
-    border-radius: 5px;
+    border-radius: .5rem;
     color: #141414;
     font-weight: bold;
     cursor: pointer;
@@ -118,7 +118,7 @@ export class AppHome extends LitElement {
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 20px;
+    gap: 2rem;
   }
     `;
 
