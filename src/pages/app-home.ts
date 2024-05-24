@@ -104,6 +104,7 @@ export class AppHome extends LitElement {
     cursor: pointer;
     transition: background-color 0.2s ease;
     max-width: 80%;
+    text-decoration: none;
   }
 
   #download-button:hover {
