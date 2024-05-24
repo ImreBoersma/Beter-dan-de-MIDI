@@ -19,7 +19,7 @@
   "shortcuts": [
     {
       "name": "Beter dan de MIDI",
-      "url": "/"
+      "url": "/%s"
     }
   ],
   "screenshots": [

@@ -94,23 +94,23 @@ export class AppHome extends LitElement {
     const originalAudios = [
       {
         title: "Bloom - The Paper Kites",
-        src: "https://diviextended.com/wp-content/uploads/2021/10/sound-of-waves-marine-drive-mumbai.mp3",
+        src: "./assets/audio/Bloom - The Paper Kites.mp3",
       },
       {
         title: "One Of These Nights - Eagles",
-        src: "https://diviextended.com/wp-content/uploads/2021/10/sound-of-waves-marine-drive-mumbai.mp3",
+        src: "./assets/audio/One Of These Nights - Eagles.mp3",
       },
       {
         title: "Vivo Per Lei - Andrea Bocelli",
-        src: "https://diviextended.com/wp-content/uploads/2021/10/sound-of-waves-marine-drive-mumbai.mp3",
+        src: "./assets/audio/Vivo Per Lei - Andrea Bocelli.mp3",
       },
       {
         title: "Umbrella - The Baseballs",
-        src: "https://diviextended.com/wp-content/uploads/2021/10/sound-of-waves-marine-drive-mumbai.mp3",
+        src: "./assets/audio/Umbrella - The Baseballs.mp3",
       },
       {
         title: "Walking On Sunshine - Katrina And The Waves",
-        src: "https://diviextended.com/wp-content/uploads/2021/10/sound-of-waves-marine-drive-mumbai.mp3",
+        src: "./assets/audio/Walking On Sunshine - Katrina And The Waves.mp3",
       },
     ];
 
