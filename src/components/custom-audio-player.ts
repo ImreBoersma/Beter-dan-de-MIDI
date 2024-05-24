@@ -27,7 +27,7 @@ class CustomAudioPlayer extends LitElement {
             <div>
                 <span class="song-title">${this.title}</span>
                 <div class="audio-player">
-                    <audio src="${this.src}" controls></audio>
+                    <audio src="${this.src}" controls id="${this.title}"></audio>
                 </div>
             </div>
         `;

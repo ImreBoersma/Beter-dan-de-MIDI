@@ -5,11 +5,42 @@ import { TemplateResult } from 'lit-html';
 import '../../public/assets/index.min.js';
 import '../components/custom-audio-player';
 
+type Audio = {
+  title: string;
+  src: string;
+  filename: string;
+};
+
 @customElement('app-home')
 export class AppHome extends LitElement {
-  _download() {
-    alert("Audio bestanden zijn nog niet beschikbaar om te downloaden. Kom later terug!");
-  }
+
+  public originalAudios: Audio[] = [
+    {
+      title: "Bloom - The Paper Kites",
+      src: "https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/Bloom%20-%20The%20Paper%20Kites.mp3",
+      filename: "Bloom - The Paper Kites.mp3",
+    },
+    {
+      title: "One Of These Nights - Eagles",
+      src: "https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/One%20Of%20These%20Nights%20-%20Eagles.mp3",
+      filename: "One Of These Nights - Eagles.mp3",
+    },
+    {
+      title: "Vivo Per Lei - Andrea Bocelli",
+      src: "https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/Vivo%20Per%20Lei%20-%20Andrea%20Bocelli.mp3",
+      filename: "Vivo Per Lei - Andrea Bocelli.mp3",
+    },
+    {
+      title: "Umbrella - The Baseballs",
+      src: "https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/Umbrella%20-%20The%20Baseballs.mp3",
+      filename: "Umbrella - The Baseballs.mp3",
+    },
+    {
+      title: "Walking On Sunshine - Katrina And The Waves",
+      src: "https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/Walking%20On%20Sunshine%20-%20Katrina%20And%20The%20Waves.mp3",
+      filename: "Walking On Sunshine - Katrina And The Waves.mp3",
+    },
+  ];
 
   firstUpdated() {
     const canvas = this.shadowRoot?.getElementById('my-canvas') as HTMLCanvasElement;
@@ -62,7 +93,7 @@ export class AppHome extends LitElement {
     gap: 20px;
   }
 
-  button {
+  #download-button {
     z-index: 2;
     padding: 15px;
     background-color: #F08080;
@@ -75,7 +106,7 @@ export class AppHome extends LitElement {
     max-width: 80%;
   }
 
-  button:hover {
+  #download-button:hover {
     background-color: #E67575;
     color: #
   }
@@ -91,30 +122,8 @@ export class AppHome extends LitElement {
 
   render() {
     const renderAudios: TemplateResult[] = [];
-    const originalAudios = [
-      {
-        title: "Bloom - The Paper Kites",
-        src: "https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/Bloom%20-%20The%20Paper%20Kites.mp3",
-      },
-      {
-        title: "One Of These Nights - Eagles",
-        src: "https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/One%20Of%20These%20Nights%20-%20Eagles.mp3",
-      },
-      {
-        title: "Vivo Per Lei - Andrea Bocelli",
-        src: "https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/Vivo%20Per%20Lei%20-%20Andrea%20Bocelli.mp3",
-      },
-      {
-        title: "Umbrella - The Baseballs",
-        src: "https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/Umbrella%20-%20The%20Baseballs.mp3",
-      },
-      {
-        title: "Walking On Sunshine - Katrina And The Waves",
-        src: "https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/Walking%20On%20Sunshine%20-%20Katrina%20And%20The%20Waves.mp3",
-      },
-    ];
 
-    originalAudios.forEach(audio => {
+    this.originalAudios.forEach(audio => {
       renderAudios.push(html`<custom-audio-player title="${audio.title}" src="${audio.src}"></custom-audio-player>`);
     });
 
@@ -125,7 +134,7 @@ export class AppHome extends LitElement {
       <div class="audio-player-container">
           ${renderAudios}
       </div>
-      <button @click="${this._download}">Download de muziek!</button>
+      <a target="_blank" id="download-button" href="https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/Muziek%20van%20de%20bruiloft.zip" download="Muziek van de bruiloft.zip">Download de muziek!</button>
     </div>
     `;
   }
