@@ -92,6 +92,7 @@ export class AppHome extends LitElement {
     align-items: center;
     flex-direction: column;
     gap: 20px;
+    padding-botton: 20px;
   }
 
   #download-button {
@@ -106,12 +107,11 @@ export class AppHome extends LitElement {
     transition: background-color 0.2s ease;
     max-width: 80%;
     text-decoration: none;
-    padding-bottom: 20px;
   }
 
   #download-button:hover {
     background-color: #E67575;
-    color: #
+    color: #000000;
   }
   .audio-player-container {
     display: flex;
@@ -138,7 +138,8 @@ export class AppHome extends LitElement {
           ${renderAudios}
       </div>
       <a target="_blank" id="download-button" href="https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/Muziek%20van%20de%20bruiloft.zip" download="Muziek van de bruiloft.zip">Download de muziek!</a>
-    </div>
+<br/>
+      </div>
     `;
   }
 }
