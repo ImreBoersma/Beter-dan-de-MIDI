@@ -120,11 +120,11 @@ export class AppHome extends LitElement {
     return html`
     <canvas id="my-canvas"></canvas>
       <div id="content">
-      <img src="../../assets/front.webp" width="900" alt="Happy Image" id="main-image" />
+      <img src="./assets/front.webp" width="900" alt="Happy Image" id="main-image" />
       <div class="audio-player-container">
           ${renderAudios}
       </div>
-      <button @click="${this._download}" >Download de muziek!</button>
+      <button @click="${this._download}">Download de muziek!</button>
     </div>
     `;
   }
