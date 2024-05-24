@@ -91,7 +91,7 @@ export class AppHome extends LitElement {
     align-items: center;
     flex-direction: column;
     gap: 2rem;
-    padding-top: 3rem;
+    padding-top: 4rem;
   }
 
   #download-button {
