@@ -134,7 +134,7 @@ export class AppHome extends LitElement {
       <div class="audio-player-container">
           ${renderAudios}
       </div>
-      <a target="_blank" id="download-button" href="https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/Muziek%20van%20de%20bruiloft.zip" download="Muziek van de bruiloft.zip">Download de muziek!</button>
+      <a target="_blank" id="download-button" href="https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/Muziek%20van%20de%20bruiloft.zip" download="Muziek van de bruiloft.zip">Download de muziek!</a>
     </div>
     `;
   }
