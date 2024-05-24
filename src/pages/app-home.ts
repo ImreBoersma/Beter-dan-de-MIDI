@@ -8,7 +8,7 @@ import '../components/custom-audio-player';
 @customElement('app-home')
 export class AppHome extends LitElement {
   _download() {
-    alert("Downloading happiness...");
+    alert("Audio bestanden zijn nog niet beschikbaar om te downloaden. Kom later terug!");
   }
 
   firstUpdated() {
@@ -119,7 +119,7 @@ export class AppHome extends LitElement {
     return html`
     <canvas id="my-canvas"></canvas>
       <div id="content">
-      <img src="https://imreboersma.github.io/Beter-dan-de-MIDI/assets/front.jpg" width="900" alt="Happy Image" id="main-image" />
+      <img src="https://imreboersma.github.io/Beter-dan-de-MIDI/assets/front.webp" width="900" alt="Happy Image" id="main-image" />
       <div class="audio-player-container">
           ${renderAudios}
       </div>
