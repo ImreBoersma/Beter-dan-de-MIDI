@@ -94,33 +94,34 @@ export class AppHome extends LitElement {
     const originalAudios = [
       {
         title: "Bloom - The Paper Kites",
-        src: "../assets/audio/Bloom - The Paper Kites.mp3",
+        src: "assets/audio/Bloom - The Paper Kites.mp3",
       },
       {
         title: "One Of These Nights - Eagles",
-        src: "../assets/audio/One Of These Nights - Eagles.mp3",
+        src: "assets/audio/One Of These Nights - Eagles.mp3",
       },
       {
         title: "Vivo Per Lei - Andrea Bocelli",
-        src: "../assets/audio/Vivo Per Lei - Andrea Bocelli.mp3",
+        src: "assets/audio/Vivo Per Lei - Andrea Bocelli.mp3",
       },
       {
         title: "Umbrella - The Baseballs",
-        src: "../assets/audio/Umbrella - The Baseballs.mp3",
+        src: "assets/audio/Umbrella - The Baseballs.mp3",
       },
       {
         title: "Walking On Sunshine - Katrina And The Waves",
-        src: "../assets/audio/Walking On Sunshine - Katrina And The Waves.mp3",
+        src: "assets/audio/Walking On Sunshine - Katrina And The Waves.mp3",
       },
     ];
 
     originalAudios.forEach(audio => {
       renderAudios.push(html`<custom-audio-player title="${audio.title}" src="${audio.src}"></custom-audio-player>`);
     });
+
     return html`
     <canvas id="my-canvas"></canvas>
       <div id="content">
-      <img src="../assets/front.webp" width="900" alt="Happy Image" id="main-image" />
+      <img src="assets/front.webp" width="900" alt="Happy Image" id="main-image" />
       <div class="audio-player-container">
           ${renderAudios}
       </div>
