@@ -3,33 +3,31 @@ import { customElement } from 'lit/decorators.js';
 
 @customElement('custom-audio-player')
 class CustomAudioPlayer extends LitElement {
-    [x: string]: unknown;
-    static properties = {
-        title: { type: String },
-        src: { type: String },
+  [x: string]: unknown;
+  static get properties() {
+    return {
+      title: { type: String },
+      src: { type: String },
     };
+  }
 
-    static styles = css`
-    .audio-player {
-        display: flex;
-        align-items: center;
-        flex-grow: 2;
-
-      }
-
-      .song-title {
-        font-size: 0.8rem;
-      }
-    `;
-
-    render() {
-        return html`
-            <div>
-                <span class="song-title">${this.title}</span>
-                    <audio class="audio-player" src="${this.src}" controls />
-            </div>
-        `;
+  static styles = css`
+    .container {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      align-items: center;
     }
+  `;
+
+  render() {
+    return html`
+      <div class="container">
+      <span class="song-title">${this.title}</span>
+      <audio class="audio-player" src="${this.src}" controls />
+      </div>
+    `;
+  }
 }
 
 customElements.get('custom-audio-player') || customElements.define('custom-audio-player', CustomAudioPlayer);

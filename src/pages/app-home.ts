@@ -45,17 +45,16 @@ export class AppHome extends LitElement {
   firstUpdated() {
     const canvas = this.shadowRoot?.getElementById('my-canvas') as HTMLCanvasElement;
     // @ts-ignore
-    new ConfettiGenerator({ target: canvas, max: 100 }).render();
+    new ConfettiGenerator({ target: canvas, max: 100, rotate: true, animate: true  }).render();
   }
 
   static styles = css`
+
   #my-canvas {
     position: absolute;
     z-index: 0;
     top: 0;
     right: 0;
-    width: 100%;
-    height: 100%;
   }
 
   #main-image {
@@ -68,30 +67,38 @@ export class AppHome extends LitElement {
 
   @media screen and (min-width: 768px) {
     #main-image {
-      max-width: 60%;
+      max-width: 70%;
     }
   }
 
   @media screen and (min-width: 992px) {
     #main-image {
-      max-width: 60%;
+      max-width: 70%;
     }
   }
 
   @media screen and (min-width: 1024px) {
     #main-image {
-      max-width: 40%;
+      max-width: 60%;
     }
   }
 
   #content {
     z-index: 1;
     text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     gap: 2rem;
-    padding-top: 4rem;
+    padding: 2rem;
+    padding-top: 10rem;
   }
 
   #download-button {
@@ -99,26 +106,37 @@ export class AppHome extends LitElement {
     padding: 1rem;
     background-color: #F08080;
     border: none;
-    border-radius: .5rem;
-    color: #141414;
+    border-radius: 1rem;
+    color: #151515;
     font-weight: bold;
     cursor: pointer;
+    -webkit-transition: background-color 0.2s ease;
+    -o-transition: background-color 0.2s ease;
     transition: background-color 0.2s ease;
-    max-width: 80%;
     text-decoration: none;
   }
 
   #download-button:hover {
-    background-color: #E67575;
+    background-color: #E15B5B;
     color: #000000;
   }
   .audio-player-container {
+    z-index: 2;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 2rem;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-evenly;
+    gap: 1rem;
   }
     `;
 
@@ -131,13 +149,12 @@ export class AppHome extends LitElement {
 
     return html`
     <canvas id="my-canvas"></canvas>
-      <div id="content">
-      <img src="https://imreboersma.github.io/Beter-dan-de-MIDI/assets/front.webp" width="900" alt="Happy Image" id="main-image" />
-      <div class="audio-player-container">
+    <div id="content">
+        <img src="https://imreboersma.github.io/Beter-dan-de-MIDI/assets/front.webp" width="900" alt="Happy Image" id="main-image" />
+        <div class="audio-player-container">
           ${renderAudios}
-      </div>
-      <a target="_blank" id="download-button" href="https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/Muziek%20van%20de%20bruiloft.zip" download="Muziek van de bruiloft.zip">Download de muziek!</a>
-<br/>
+        </div>
+        <a target="_blank" id="download-button" href="https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/Muziek%20van%20de%20bruiloft.zip" download="Muziek van de bruiloft.zip">Download de muziek!</a>
       </div>
     `;
   }
