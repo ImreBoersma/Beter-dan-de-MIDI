@@ -27,7 +27,7 @@
   "devDependencies": {
     "terser": "^5.31.0",
     "typescript": "^5.4.5",
-    "vite": "^5.2.11",
+    "vite": "^5.2.13",
     "vite-plugin-pwa": "^0.20.0"
   },
   "prettier": {
