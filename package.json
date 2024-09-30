@@ -8,6 +8,7 @@
     "dev-server": "vite --open --host",
     "dev": "npm run dev-server",
     "dev-task": "vite",
+    "lint": "eslint src",
     "deploy": "npx @azure/static-web-apps-cli login --no-use-keychain && npx @azure/static-web-apps-cli deploy",
     "build": "tsc && vite build",
     "start": "npm run dev",
@@ -16,8 +17,8 @@
   "author": "Imre Boersma",
   "license": "ISC",
   "dependencies": {
-    "@shoelace-style/shoelace": "^2.17.1",
     "@thepassle/app-tools": "^0.9.12",
+    "@types/globalthis": "^1.0.4",
     "lit": "^3.2.0",
     "urlpattern-polyfill": "^10.0.0",
     "workbox-build": "^7.1.1",
@@ -25,19 +26,13 @@
     "workbox-precaching": "^7.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "eslint": "^9.11.1",
+    "globals": "^15.9.0",
     "terser": "^5.34.1",
     "typescript": "^5.6.2",
+    "typescript-eslint": "^8.7.0",
     "vite": "^5.4.8",
     "vite-plugin-pwa": "^0.20.5"
-  },
-  "prettier": {
-    "tabWidth": 2,
-    "useTabs": false,
-    "semi": true,
-    "singleQuote": true,
-    "quoteProps": "consistent",
-    "trailingComma": "es5",
-    "endOfLine": "crlf",
-    "bracketSpacing": true
   }
 }
