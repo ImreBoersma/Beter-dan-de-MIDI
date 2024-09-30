@@ -1,5 +1,3 @@
-// docs for router https://github.com/thepassle/app-tools/blob/master/router/README.md
-
 import { html } from 'lit';
 
 if (!(globalThis as any).URLPattern) {
