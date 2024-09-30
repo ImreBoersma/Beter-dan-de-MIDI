@@ -5,26 +5,20 @@ if (!(globalThis as any).URLPattern) {
 }
 
 import { Router } from '@thepassle/app-tools/router.js';
-
 import './pages/app-home.js';
 
 const baseURL: string = (import.meta as any).env.BASE_URL;
 
 export const router = new Router({
-    routes: [
-      {
-        path: resolveRouterPath(),
-        title: 'Home',
-        render: () => html`<app-home></app-home>`
-      }
-    ]
-  });
-
-  export function resolveRouterPath(unresolvedPath?: string) {
-    var resolvedPath = baseURL;
-    if(unresolvedPath) {
-      resolvedPath = resolvedPath + unresolvedPath;
+  routes: [
+    {
+      path: resolveRouterPath(),
+      title: 'Home',
+      render: () => html`<app-home />`
     }
+  ]
+});
 
-    return resolvedPath;
-  }
+export function resolveRouterPath(unresolvedPath: string = ''): string {
+  return `${baseURL}${unresolvedPath}`;
+}
