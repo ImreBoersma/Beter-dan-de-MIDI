@@ -1,13 +1,13 @@
 import { html } from 'lit';
 
-if (!(globalThis as any).URLPattern) {
+if (!('URLPattern' in globalThis)) {
   await import("urlpattern-polyfill");
 }
 
 import { Router } from '@thepassle/app-tools/router.js';
 import './pages/app-home.js';
 
-const baseURL: string = (import.meta as any).env.BASE_URL;
+const baseURL: string = import.meta.env.BASE_URL;
 
 export const router = new Router({
   routes: [

@@ -7,7 +7,7 @@ import { router } from './router';
 
 @customElement('app-index')
 export class AppIndex extends LitElement {
-  
+
   static styles = css`
   html {
     font-family: Arial, sans-serif;
@@ -34,7 +34,8 @@ export class AppIndex extends LitElement {
 
   firstUpdated() {
     router.addEventListener('route-changed', () => {
-      (document as any).startViewTransition?.(() => this.requestUpdate()) ?? this.requestUpdate();
+      const doc = document as Document & { startViewTransition?: () => void };
+      doc.startViewTransition?.(() => this.requestUpdate()) ?? this.requestUpdate();
     });
   }
 

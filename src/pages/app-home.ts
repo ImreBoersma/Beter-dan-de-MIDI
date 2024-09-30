@@ -3,7 +3,7 @@ import { customElement } from 'lit/decorators.js';
 import { TemplateResult } from 'lit-html';
 
 import '../../public/assets/index.min.js';
-import '../components/custom-audio-player';
+import '../components/custom-audio-player.js';
 
 type Audio = {
   title: string;
@@ -13,6 +13,92 @@ type Audio = {
 
 @customElement('app-home')
 export class AppHome extends LitElement {
+
+  static styles = css`
+  #my-canvas {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: 0;
+  }
+
+  #main-image {
+    z-index:2;
+    border-radius: 1rem;
+    max-width: 70%;
+    width: auto;
+    aspect-ratio: 1/1;
+
+    @media screen and (min-width: 768px) {
+        max-width: 70%;
+    }
+
+    @media screen and (min-width: 992px) {
+        max-width: 70%;
+    }
+
+    @media screen and (min-width: 1024px) {
+        max-width: 60%;
+    }
+  }
+
+  #content {
+    z-index: 1;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    padding-top: 10rem;
+  }
+
+  .download-button {
+    z-index: 2;
+    padding: 1rem;
+    background-color: #F08080;
+    border: none;
+    border-radius: 1rem;
+    color: #151515;
+    font-weight: bold;
+    cursor: pointer;
+    -webkit-transition: background-color 0.2s ease;
+    -o-transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+
+    &:hover {
+      background-color: #E15B5B;
+      color: #000000;
+    }
+  }
+
+  .audio-player-container {
+    z-index: 2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-evenly;
+    gap: 1rem;
+  }
+  `;
 
   public originalAudios: Audio[] = [
     {
@@ -44,108 +130,14 @@ export class AppHome extends LitElement {
 
   firstUpdated() {
     const canvas = this.shadowRoot?.getElementById('my-canvas') as HTMLCanvasElement;
-    // @ts-ignore
-    new ConfettiGenerator({ target: canvas, max: 100, rotate: true, animate: true  }).render();
+    // @ts-expect-error ConfettiGenerator is not defined
+    new ConfettiGenerator({ target: canvas, max: 100, rotate: true, animate: true }).render();
   }
-
-  static styles = css`
-
-  #my-canvas {
-    position: absolute;
-    z-index: 0;
-    top: 0;
-    right: 0;
-  }
-
-  #main-image {
-    z-index:2;
-    border-radius: 1rem;
-    max-width: 70%;
-    width: auto;
-    aspect-ratio: 1/1;
-  }
-
-  @media screen and (min-width: 768px) {
-    #main-image {
-      max-width: 70%;
-    }
-  }
-
-  @media screen and (min-width: 992px) {
-    #main-image {
-      max-width: 70%;
-    }
-  }
-
-  @media screen and (min-width: 1024px) {
-    #main-image {
-      max-width: 60%;
-    }
-  }
-
-  #content {
-    z-index: 1;
-    text-align: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    gap: 2rem;
-    padding: 2rem;
-    padding-top: 10rem;
-  }
-
-  #download-button {
-    z-index: 2;
-    padding: 1rem;
-    background-color: #F08080;
-    border: none;
-    border-radius: 1rem;
-    color: #151515;
-    font-weight: bold;
-    cursor: pointer;
-    -webkit-transition: background-color 0.2s ease;
-    -o-transition: background-color 0.2s ease;
-    transition: background-color 0.2s ease;
-    text-decoration: none;
-  }
-
-  #download-button:hover {
-    background-color: #E15B5B;
-    color: #000000;
-  }
-  .audio-player-container {
-    z-index: 2;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -ms-flex-pack: distribute;
-        justify-content: space-evenly;
-    gap: 1rem;
-  }
-    `;
 
   render() {
-    const renderAudios: TemplateResult[] = [];
-
-    this.originalAudios.forEach(audio => {
-      renderAudios.push(html`<custom-audio-player title="${audio.title}" src="${audio.src}"></custom-audio-player>`);
-    });
+    const renderAudios: TemplateResult[] = this.originalAudios.map(audio =>
+      html`<custom-audio-player title="${audio.title}" src="${audio.src}"></custom-audio-player>`
+    );
 
     return html`
     <canvas id="my-canvas"></canvas>
@@ -154,7 +146,7 @@ export class AppHome extends LitElement {
         <div class="audio-player-container">
           ${renderAudios}
         </div>
-        <a target="_blank" id="download-button" href="https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/Muziek%20van%20de%20bruiloft.zip" download="Muziek van de bruiloft.zip">Download de muziek!</a>
+        <a target="_blank" class="download-button" href="https://imreboersma.github.io/Beter-dan-de-MIDI/assets/audio/Muziek%20van%20de%20bruiloft.zip" download="Muziek van de bruiloft.zip">Download de muziek!</a>
       </div>
     `;
   }
