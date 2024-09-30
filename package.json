@@ -1,7 +1,7 @@
 {
-  "name": "pwa-starter",
-  "version": "0.0.1",
-  "description": "A starter kit for building PWAs!",
+  "name": "beter-dan-de-midi",
+  "version": "1.0",
+  "description": "Een app speciaal voor Carlijn en Sander met muziek die gespeeld is op de bruiloft. 25 mei 2024",
   "type": "module",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "start": "npm run dev",
     "start-remote": "vite --host"
   },
-  "author": "",
+  "author": "Imre Boersma",
   "license": "ISC",
   "dependencies": {
     "@shoelace-style/shoelace": "^2.17.1",
