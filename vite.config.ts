@@ -19,14 +19,11 @@ export default defineConfig({
         swDest: 'dist/sw.js',
         globDirectory: 'dist',
         globPatterns: [
-          '**/*.{html,js,css,json,png}',
+          '**/*.{html,js,css,webp}',
         ],
       },
       injectRegister: false,
-      manifest: false,
-      devOptions: {
-        enabled: true
-      }
+      manifest: false
     })
   ]
 })

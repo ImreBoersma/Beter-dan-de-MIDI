@@ -1,15 +1,13 @@
 {
   "compilerOptions": {
     "module": "esnext",
-    "target": "esnext",
+    "target": "es2017",
     "lib": [
       "es2017",
-      "esnext",
       "dom",
       "dom.iterable"
     ],
-    "declaration": true,
-    "emitDeclarationOnly": true,
+    "declaration": false,
     "skipLibCheck": true,
     "outDir": "./types",
     "strict": true,
@@ -17,22 +15,30 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": false,
     "isolatedModules": true,
+    "removeComments": true,
+    "inlineSourceMap": false,
+    "inlineSources": false,
+    "downlevelIteration": false,
+    "esModuleInterop": true,
+    "importsNotUsedAsValues": "remove",
     "types": [
       "vite-plugin-pwa/client",
-      "vite/client"
+      "vite/client",
+      "node"
     ]
   },
   "include": [
     "src/**/*.ts",
-    "router.d.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist",
+    "types"
   ]
 }

@@ -11,10 +11,5 @@ export default [
 
   },
   pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-  {
-    rules: {
-      "@typescript-eslint/no-unused-expressions": "warn"
-    }
-  }
+  ...tseslint.configs.recommended
 ];
