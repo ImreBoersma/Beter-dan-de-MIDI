@@ -7,7 +7,7 @@ import './pages/app-home';
 export class AppIndex extends LitElement {
 
   static styles = css`
-  html {
+  * {
     font-family: Arial, sans-serif;
     background-color: #fffeee;
     margin: 0;
