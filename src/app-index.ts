@@ -1,9 +1,7 @@
-import { css, LitElement } from 'lit';
+import { css, LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
 import './pages/app-home';
-import './styles/global.css';
-import { router } from './router';
 
 @customElement('app-index')
 export class AppIndex extends LitElement {
@@ -32,14 +30,7 @@ export class AppIndex extends LitElement {
     height: 100lvh;
   }`;
 
-  firstUpdated() {
-    router.addEventListener('route-changed', () => {
-      const doc = document as Document & { startViewTransition?: () => void };
-      doc.startViewTransition?.(() => this.requestUpdate()) ?? this.requestUpdate();
-    });
-  }
-
   render() {
-    return router.render();
+    return html`<app-home />`
   }
 }
