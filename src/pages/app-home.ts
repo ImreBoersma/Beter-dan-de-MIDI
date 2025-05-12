@@ -15,11 +15,19 @@ type Audio = {
 export class AppHome extends LitElement {
 
   static styles = css`
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+  }
+
   #my-canvas {
     position: absolute;
     z-index: 0;
-    top: 0;
-    right: 0;
   }
 
   #main-image {
@@ -130,7 +138,8 @@ export class AppHome extends LitElement {
 
   firstUpdated() {
     const canvas = this.shadowRoot?.getElementById('my-canvas') as HTMLCanvasElement;
-    // @ts-expect-error ConfettiGenerator is not defined
+    const ConfettiGenerator = (window as any).ConfettiGenerator;
+
     new ConfettiGenerator({ target: canvas, max: 100, rotate: true, animate: true }).render();
   }
 

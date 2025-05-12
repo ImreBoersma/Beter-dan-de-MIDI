@@ -6,7 +6,7 @@ import './pages/app-home';
 @customElement('app-index')
 export class AppIndex extends LitElement {
 
-  static styles = css`
+static styles = css`
   * {
     font-family: Arial, sans-serif;
     background-color: #fffeee;
@@ -25,9 +25,9 @@ export class AppIndex extends LitElement {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    overflow-y: scroll;
+    height: 100vh;
+    width: 100vw;
     overflow-x: hidden;
-    height: 100lvh;
   }`;
 
   render() {
