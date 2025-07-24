@@ -18,6 +18,9 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Fix file permissions for Pages deployment
+        run: chmod -R a+rX ./dist
+
       - name: Install Dependencies
         run: npm ci
 
