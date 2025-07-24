@@ -11,33 +11,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 'latest'
 
-      - name: Fix file permissions for Pages deployment
-        run: chmod -R a+rX ./dist
-
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm ci
 
       - name: Rewrite Manifest Path in Index
-        run: sed -i 's@/manifest.json@${{ github.event.repository.name }}/manifest.json@g' ./index.html && cat index.html
+        run: sed -i 's@/manifest.json@${{ github.event.repository.name }}/manifest.json@g' ./index.html
 
       - name: Rewrite Service Worker Path in Index
-        run: sed -i 's@/sw.js@${{ github.event.repository.name }}/sw.js@g' ./index.html && cat ./index.html
+        run: sed -i 's@/sw.js@${{ github.event.repository.name }}/sw.js@g' ./index.html
 
       - name: Replace Paths in Manifest
-        run: sed -i 's@"/"@"/${{ github.event.repository.name }}/"@g' ./public/manifest.json && cat ./public/manifest.json
+        run: sed -i 's@"/"@"/${{ github.event.repository.name }}/"@g' ./public/manifest.json
 
-      - name: Vite Build
+      - name: Build with Vite (with base path)
         run: npm run build -- --base=/${{ github.event.repository.name }}/
 
-      - name: Redirect 404 to Index for SPA
+      - name: Redirect 404 to index.html (SPA fallback)
         run: cp dist/index.html dist/404.html
+
+      - name: Fix permissions for GitHub Pages
+        run: chmod -R a+rX ./dist
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
@@ -54,7 +55,13 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          path: .
+
       - id: deployment
         uses: actions/deploy-pages@v4
-
