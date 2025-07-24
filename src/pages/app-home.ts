@@ -2,7 +2,7 @@ import { LitElement, css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { TemplateResult } from 'lit-html';
 
-import '../confetti/index.min.js';
+import '/confetti.min.js';
 import '../components/custom-audio-player.js';
 
 type Audio = {
