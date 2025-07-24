@@ -2,7 +2,7 @@ import { LitElement, css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { TemplateResult } from 'lit-html';
 
-import './confetti.min.js';
+import '../components/confetti.min.js';
 import '../components/custom-audio-player.js';
 
 type Audio = {
@@ -14,58 +14,47 @@ type Audio = {
 @customElement('app-home')
 export class AppHome extends LitElement {
 
-  static styles = css`
-  html, body {
+static styles = css`
+  :host {
+    display: block;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    width: 100vw;
     height: 100vh;
-    top: 0;
-    right: 0;
-  }
-
-  #my-canvas {
-    position: absolute;
-    z-index: 0;
-  }
-
-  #main-image {
-    z-index:2;
-    border-radius: 1rem;
-    max-width: 70%;
-    width: auto;
-    aspect-ratio: 1/1;
-
-    @media screen and (min-width: 768px) {
-        max-width: 70%;
-    }
-
-    @media screen and (min-width: 992px) {
-        max-width: 70%;
-    }
-
-    @media screen and (min-width: 1024px) {
-        max-width: 60%;
-    }
+    overflow: hidden;
   }
 
   #content {
+    position: relative;
     z-index: 1;
-    text-align: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; /* prevent content from spilling */
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     gap: 2rem;
     padding: 2rem;
-    padding-top: 10rem;
+    box-sizing: border-box;
+  }
+  #my-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-color: #fffeee;
+    pointer-events: none;
+  }
+
+  #main-image {
+    max-width: 65%;
+    max-height: 65%;
+    width: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 1rem;
   }
 
   .download-button {
@@ -77,36 +66,23 @@ export class AppHome extends LitElement {
     color: #151515;
     font-weight: bold;
     cursor: pointer;
-    -webkit-transition: background-color 0.2s ease;
-    -o-transition: background-color 0.2s ease;
     transition: background-color 0.2s ease;
     text-decoration: none;
+  }
 
-    &:hover {
-      background-color: #E15B5B;
-      color: #000000;
-    }
+  .download-button:hover {
+    background-color: #E15B5B;
+    color: #000000;
   }
 
   .audio-player-container {
     z-index: 2;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -ms-flex-pack: distribute;
-        justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
   }
-  `;
+`;
 
   public originalAudios: Audio[] = [
     {
@@ -140,7 +116,7 @@ export class AppHome extends LitElement {
     const canvas = this.shadowRoot?.getElementById('my-canvas') as HTMLCanvasElement;
     const ConfettiGenerator = (window as any).ConfettiGenerator;
 
-    new ConfettiGenerator({ target: canvas, max: 100, rotate: true, animate: true }).render();
+    new ConfettiGenerator({ target: canvas, max: 99, rotate: true, animate: true }).render();
   }
 
   render() {
