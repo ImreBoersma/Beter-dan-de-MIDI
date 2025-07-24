@@ -2,7 +2,6 @@ import { LitElement, css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { TemplateResult } from 'lit-html';
 
-import '../components/confetti.min.js';
 import '../components/custom-audio-player.js';
 
 type Audio = {
@@ -14,7 +13,7 @@ type Audio = {
 @customElement('app-home')
 export class AppHome extends LitElement {
 
-static styles = css`
+  static styles = css`
   :host {
     display: block;
     margin: 0;
@@ -114,7 +113,7 @@ static styles = css`
 
   firstUpdated() {
     const canvas = this.shadowRoot?.getElementById('my-canvas') as HTMLCanvasElement;
-    const ConfettiGenerator = (window as any).ConfettiGenerator;
+    const ConfettiGenerator = (window as any)?.ConfettiGenerator;
 
     new ConfettiGenerator({ target: canvas, max: 99, rotate: true, animate: true }).render();
   }

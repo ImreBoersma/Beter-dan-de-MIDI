@@ -5,7 +5,7 @@ import { customElement, property } from 'lit/decorators.js';
 class CustomAudioPlayer extends LitElement {
   @property({ type: String }) title!: string;
   @property({ type: String }) src!: string;
-  
+
   static styles = css`
     .container {
       display: flex;
