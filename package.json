@@ -31,7 +31,14 @@
     "terser": "^5.44.0",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.42.0",
-    "vite": "^7.1.4",
+    "vite": "^7.1.5",
     "vite-plugin-pwa": "^1.0.3"
+  },
+  "overrides": {
+    "workbox-build": {
+      "glob": "^11.0.0",
+      "inflight": "npm:once@^1.4.0",
+      "sourcemap-codec": "npm:@jridgewell/sourcemap-codec@^1.4.15"
+    }
   }
 }

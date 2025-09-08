@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="nl">
-  <head>
-    <meta charset="utf-8">
-    <title>Beter dan de MIDI</title>
 
-    <base href="/">
+<head>
+  <meta charset="utf-8">
+  <title>Beter dan de MIDI</title>
 
-    <meta name="theme-color" content="#FFFEEE">
+  <base href="/">
 
-    <meta
-      name="viewport"
-      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-    <meta
-      name="description"
-      content="Een app speciaal voor Carlijn en Sander met muziek die gespeeld is op de bruiloft. 25 mei 2024">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Beter dan de MIDI">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="pwa-starter-template-identity" content="pwa-starter">
+  <meta name="theme-color" content="#FFFEEE">
 
-    <link rel="icon" href="/assets/favicon.ico" type="image/png">
+  <meta name="viewport"
+    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <meta name="description"
+    content="Een app speciaal voor Carlijn en Sander met muziek die gespeeld is op de bruiloft. 25 mei 2024">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Beter dan de MIDI">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="pwa-starter-template-identity" content="pwa-starter">
 
-    <link rel="preload" fetchpriority="high" as="image" href="https://imreboersma.github.io/Beter-dan-de-MIDI/assets/front.webp" type="image/webp">
+  <link rel="icon" href="/assets/favicon.ico" type="image/png">
+
+  <link rel="preload" fetchpriority="high" as="image"
+    href="https://imreboersma.github.io/Beter-dan-de-MIDI/assets/front.webp" type="image/webp">
 
 
-    <link rel="manifest" href="/manifest.json">
-    <script type="module" src="/src/app-index.ts"></script>
-    <script src="https://raw.githubusercontent.com/ImreBoersma/Beter-dan-de-MIDI/refs/heads/pwa/src/components/confetti.min.js"></script>
-  </head>
+  <link rel="manifest" href="/manifest.json">
+  <script type="text/javascript" src="./public/assets/confetti.min.js" />
+  <script type="module" src="/src/app-index.ts" />
+</head>
 
-  <body>
-    <app-index></app-index>
+<body>
+  <app-index></app-index>
 
-    <script>"serviceWorker"in navigator&&(window.onload=()=>{navigator.serviceWorker.register("/sw.js")});</script>
-  </body>
+  <script>"serviceWorker" in navigator && (window.onload = () => { navigator.serviceWorker.register("/sw.js") });</script>
+</body>
+
 </html>
