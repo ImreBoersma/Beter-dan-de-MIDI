@@ -24,3 +24,5 @@ class CustomAudioPlayer extends LitElement {
     `;
   }
 }
+
+customElements.get('custom-audio-player') || customElements.define('custom-audio-player', CustomAudioPlayer);
