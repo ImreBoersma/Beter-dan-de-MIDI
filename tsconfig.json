@@ -9,7 +9,7 @@
       "DOM.Iterable"
     ],
 
-    "rootDir": "./src",
+    "rootDir": "./",
     "outDir": "./types",
 
     "strict": true,
