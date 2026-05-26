@@ -1,42 +1,49 @@
 {
   "compilerOptions": {
-    "module": "esnext",
-    "target": "es2017",
+    "target": "ES2022",
+    "module": "ESNext",
+
     "lib": [
-      "es2017",
-      "dom",
-      "dom.iterable"
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
     ],
+
     "rootDir": "./src",
-    "declaration": false,
-    "skipLibCheck": true,
     "outDir": "./types",
+
     "strict": true,
+
+    "moduleResolution": "bundler",
+
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+
+    "allowSyntheticDefaultImports": true,
+
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
+
+    "skipLibCheck": true,
+
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
+
     "forceConsistentCasingInFileNames": true,
-    "useDefineForClassFields": false,
-    "isolatedModules": true,
-    "removeComments": true,
-    "inlineSourceMap": false,
-    "inlineSources": false,
-    "downlevelIteration": false,
-    "esModuleInterop": true,
-    "importsNotUsedAsValues": "remove",
+
     "types": [
-      "vite-plugin-pwa/client",
       "vite/client",
+      "vite-plugin-pwa/client",
       "node"
     ]
   },
+
   "include": [
-    "src/**/*.ts",
+    "src/**/*.ts"
   ],
+
   "exclude": [
     "node_modules",
     "dist",
