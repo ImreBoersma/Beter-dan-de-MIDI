@@ -10,7 +10,7 @@
     "dev-task": "vite",
     "lint": "eslint src",
     "deploy": "npx @azure/static-web-apps-cli login --no-use-keychain && npx @azure/static-web-apps-cli deploy",
-    "build": "tsc && vite build",
+    "build": "tsc --noEmit && vite build",
     "start": "npm run dev",
     "start-remote": "vite --host"
   },
