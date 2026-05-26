@@ -1,6 +1,6 @@
 import { LitElement, css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { TemplateResult } from 'lit-html';
+import type { TemplateResult } from 'lit-html';
 
 import '../components/custom-audio-player.js';
 
