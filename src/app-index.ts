@@ -1,11 +1,10 @@
-import { css, LitElement, html } from 'lit';
+import { css, html, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
 import './pages/app-home';
 
 @customElement('app-index')
 export class AppIndex extends LitElement {
-
   static styles = css`
   * {
     font-family: Arial, sans-serif;
@@ -19,6 +18,6 @@ export class AppIndex extends LitElement {
   }`;
 
   render() {
-    return html`<app-home />`
+    return html`<app-home />`;
   }
 }
