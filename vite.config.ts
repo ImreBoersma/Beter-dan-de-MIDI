@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
-  base: "/",
+  base: "/Beter-dan-de-MIDI/",
   build: {
     sourcemap: true,
     assetsDir: "code",
