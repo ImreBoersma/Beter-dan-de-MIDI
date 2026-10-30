@@ -7,3 +7,7 @@ jobs:
   ci:
     uses: ImreBoersma/projects/.github/workflows/ci-node.yml@main
     with: { artifact: dist }
+  deploy:
+    needs: ci
+    permissions: { pages: write, id-token: write }
+    uses: ImreBoersma/projects/.github/workflows/deploy-pages.yml@main
