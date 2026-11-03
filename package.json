@@ -36,7 +36,7 @@
   },
   "overrides": {
     "workbox-build": {
-      "glob": "^11.0.0",
+      "glob": "^14.0.0",
       "inflight": "npm:once@^1.4.0",
       "sourcemap-codec": "npm:@jridgewell/sourcemap-codec@^1.4.15",
       "ejs": "^6.0.1"
